@@ -1,0 +1,10 @@
+.DS_Store
+resources/
+build/
+cmake-build-*/
+CMakeUserPresets.json
+*.user
+.vscode/
+.idea/
+.cache/
+*.onnx
