@@ -85,7 +85,7 @@ Page count: 2
 	Size page 1: 277086 bytes
 ```
 
-Exit codes: `0` if every page was read, `1` if the folder could not be opened, `2` if some pages failed to read.
+Exit codes: `0` if every page was read, `1` if the folder could not be opened, `2` if some pages failed to read, `3` if the folder has no images.
 
 ## License
 
