@@ -1,0 +1,3 @@
+add_executable(fukiyomi_cli main.cpp)
+
+target_link_libraries(fukiyomi_cli PRIVATE fukiyomi_core fukiyomi_sources)

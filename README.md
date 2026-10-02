@@ -20,7 +20,7 @@
 
 The long-term goal is to detect speech bubbles on a page, recognize their text, and translate or voice it, all without a server.
 
-> **Status:** early development. Version 0.1 is in progress. A console prototype already opens a folder of images and reads every page; the Qt window comes next.
+> **Status:** early development. Version 0.1 is in progress. A console tool already opens a folder of images and reads every page. The desktop app opens an empty window so far; showing pages comes next.
 
 ## Architecture
 
@@ -48,14 +48,18 @@ The desktop app comes first. Mobile and web clients will follow once the core ha
 ## Tech stack
 
 - C++23, CMake
-- Qt 6 for the desktop UI
+- Qt 6 (Qt Quick, QML) for the desktop UI
 - OpenCV for image processing (from 0.2)
 - ONNX Runtime for local ML inference (when needed)
 - GoogleTest for unit tests
 
 ## Building
 
-You need CMake 3.20 or newer and a compiler with C++23 support, including `std::expected`: Clang 16+, GCC 12+, or Apple Clang from Xcode 15+.
+You need:
+
+- CMake 3.20 or newer
+- a compiler with C++23 support, including `std::expected`: Clang 16+, GCC 12+, or Apple Clang from Xcode 15+
+- Qt 6.8 or newer with the Qt Quick module (on macOS: `brew install qt`)
 
 ```sh
 ./build.sh
@@ -70,10 +74,18 @@ cmake --build build
 
 ## Running
 
-The current version is a console prototype. Pass it a folder with manga pages:
+The build produces two programs on top of the same core.
+
+**Desktop app** (Qt Quick). For now it only opens an empty window:
 
 ```sh
-./build/apps/desktop/fukiyomi path/to/chapter
+./build/apps/desktop/fukiyomi
+```
+
+**Console tool.** Pass it a folder with manga pages:
+
+```sh
+./build/apps/cli/fukiyomi_cli path/to/chapter
 ```
 
 It lists the images in the folder (PNG, JPEG, WebP, sorted by file name), reads each one, and prints its size:
