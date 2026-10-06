@@ -20,7 +20,7 @@
 
 The long-term goal is to detect speech bubbles on a page, recognize their text, and translate or voice it, all without a server.
 
-> **Status:** early development. Version 0.1 is in progress. A console tool already opens a folder of images and reads every page. The desktop app opens an empty window so far; showing pages comes next.
+> **Status:** early development. Version 0.1 is done: the desktop app opens a folder of images and pages through it. Next is 0.2, speech bubble detection.
 
 ## Architecture
 
@@ -76,11 +76,13 @@ cmake --build build
 
 The build produces two programs on top of the same core.
 
-**Desktop app** (Qt Quick). For now it only opens an empty window:
+**Desktop app** (Qt Quick). Pass it a folder with manga pages:
 
 ```sh
-./build/apps/desktop/fukiyomi
+./build/apps/desktop/fukiyomi path/to/chapter
 ```
+
+The window shows one page at a time, scaled to fit. Use the **→** and **←** arrow keys to go to the next and previous page. The page counter is at the bottom.
 
 **Console tool.** Pass it a folder with manga pages:
 
