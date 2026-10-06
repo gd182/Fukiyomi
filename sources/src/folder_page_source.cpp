@@ -1,4 +1,5 @@
 #include <fukiyomi/sources/folder_page_source.h>
+#include <fukiyomi/core/natural_sort.h>
 
 #include <filesystem>
 #include <expected>
@@ -55,8 +56,12 @@ namespace fukiyomi::sources
             return std::unexpected(core::PageError::SourceNotFound);
         }
 
-        // TODO: natural sort (page2 before page10)
-        std::ranges::sort(files);
+        std::ranges::sort(files,
+            [](const std::filesystem::path& a, const std::filesystem::path& b)
+            {
+                return core::naturalLess(a.filename().string(), b.filename().string());
+            }
+        );
         
         return FolderPageSource(std::move(files));
     }
