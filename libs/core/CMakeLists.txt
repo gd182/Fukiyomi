@@ -3,6 +3,7 @@ add_library(fukiyomi_core
             src/page_error.cpp
             src/reading_session.cpp
             src/natural_sort.cpp
+            src/detector_error.cpp
 )
 
 #target_compile_features(fukiyomi_core PRIVATE cxx_std_23)

@@ -12,8 +12,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 enable_testing()
 
-add_subdirectory(core)
-add_subdirectory(sources)
+add_subdirectory(libs/core)
+add_subdirectory(libs/sources)
+add_subdirectory(libs/vision)
 add_subdirectory(apps/desktop)
 add_subdirectory(apps/cli)
 
